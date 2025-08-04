@@ -46,8 +46,8 @@
             this.lblEdicaoNomeProdutos = new System.Windows.Forms.Label();
             this.txbCadastroPreco = new System.Windows.Forms.TextBox();
             this.txbCadastroNome = new System.Windows.Forms.TextBox();
-            this.txbEditarCategoria = new System.Windows.Forms.TextBox();
-            this.txbCadastroCategoria = new System.Windows.Forms.TextBox();
+            this.CmbCategoriasEditar = new System.Windows.Forms.ComboBox();
+            this.cmbCategoriasCadastrar = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).BeginInit();
             this.GrbApagar.SuspendLayout();
             this.grbEdicao.SuspendLayout();
@@ -105,7 +105,7 @@
             // grbEdicao
             // 
             this.grbEdicao.BackColor = System.Drawing.SystemColors.Control;
-            this.grbEdicao.Controls.Add(this.txbEditarCategoria);
+            this.grbEdicao.Controls.Add(this.CmbCategoriasEditar);
             this.grbEdicao.Controls.Add(this.lblCategoria);
             this.grbEdicao.Controls.Add(this.btnEditar);
             this.grbEdicao.Controls.Add(this.lblEdicaoPreco);
@@ -176,8 +176,8 @@
             // 
             // GrbCadastro
             // 
+            this.GrbCadastro.Controls.Add(this.cmbCategoriasCadastrar);
             this.GrbCadastro.Controls.Add(this.lblCadastraCategoria);
-            this.GrbCadastro.Controls.Add(this.txbCadastroCategoria);
             this.GrbCadastro.Controls.Add(this.btnCadastrarProduto);
             this.GrbCadastro.Controls.Add(this.lblPreco);
             this.GrbCadastro.Controls.Add(this.lblEdicaoNomeProdutos);
@@ -244,19 +244,23 @@
             this.txbCadastroNome.Size = new System.Drawing.Size(132, 20);
             this.txbCadastroNome.TabIndex = 0;
             // 
-            // txbEditarCategoria
+            // CmbCategoriasEditar
             // 
-            this.txbEditarCategoria.Location = new System.Drawing.Point(126, 129);
-            this.txbEditarCategoria.Name = "txbEditarCategoria";
-            this.txbEditarCategoria.Size = new System.Drawing.Size(131, 20);
-            this.txbEditarCategoria.TabIndex = 8;
+            this.CmbCategoriasEditar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbCategoriasEditar.FormattingEnabled = true;
+            this.CmbCategoriasEditar.Location = new System.Drawing.Point(127, 132);
+            this.CmbCategoriasEditar.Name = "CmbCategoriasEditar";
+            this.CmbCategoriasEditar.Size = new System.Drawing.Size(131, 21);
+            this.CmbCategoriasEditar.TabIndex = 10;
             // 
-            // txbCadastroCategoria
+            // cmbCategoriasCadastrar
             // 
-            this.txbCadastroCategoria.Location = new System.Drawing.Point(135, 99);
-            this.txbCadastroCategoria.Name = "txbCadastroCategoria";
-            this.txbCadastroCategoria.Size = new System.Drawing.Size(131, 20);
-            this.txbCadastroCategoria.TabIndex = 9;
+            this.cmbCategoriasCadastrar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCategoriasCadastrar.FormattingEnabled = true;
+            this.cmbCategoriasCadastrar.Location = new System.Drawing.Point(137, 98);
+            this.cmbCategoriasCadastrar.Name = "cmbCategoriasCadastrar";
+            this.cmbCategoriasCadastrar.Size = new System.Drawing.Size(130, 21);
+            this.cmbCategoriasCadastrar.TabIndex = 11;
             // 
             // FrmGestaoProdutos
             // 
@@ -301,7 +305,7 @@
         private System.Windows.Forms.Label lblEdicaoNomeProdutos;
         private System.Windows.Forms.TextBox txbCadastroPreco;
         private System.Windows.Forms.TextBox txbCadastroNome;
-        private System.Windows.Forms.TextBox txbEditarCategoria;
-        private System.Windows.Forms.TextBox txbCadastroCategoria;
+        private System.Windows.Forms.ComboBox CmbCategoriasEditar;
+        private System.Windows.Forms.ComboBox cmbCategoriasCadastrar;
     }
 }

@@ -17,11 +17,26 @@ namespace Padarosa
         //Variaveis globais:
         Model.Usuario usuario;
         Model.Produto produto = new Model.Produto();
+        Model.Categoria categoria = new Model.Categoria();
+
         public FrmGestaoProdutos(Model.Usuario usuario)
         {
             InitializeComponent();
             this.usuario = usuario;
             AtualizarDgvProdutos();
+            
+            //Obter as Categorias do Banco:
+            DataTable resultadoCategorias = categoria.Listar_Categorias();
+
+            foreach (DataRow linha in resultadoCategorias.Rows)
+            {
+                //Exemplo: 1 -Alimentacao:
+                //Adicionar ao Combobox
+                cmbCategoriasCadastrar.Items.Add($"{linha["id"]} - {linha["nome"]}");
+                CmbCategoriasEditar.Items.Add($"{linha["id"]} - {linha["nome"]}");
+
+
+            }
         }
 
         private void FrmGestaoProdutos_Load(object sender, EventArgs e)
@@ -51,12 +66,13 @@ namespace Padarosa
             }
             else
             {
-                Model.Produto produto = new Model.Produto();
-                produto.nome = txbCadastroNome.Text;
-                produto.preco = double.Parse(txbCadastroPreco.Text);
-                produto.id_categoria = int.Parse(txbCadastroCategoria.Text);
-                produto.id_rescadastro = usuario.Id;
+               
+                this.produto.nome = txbCadastroNome.Text;
+                this.produto.preco = double.Parse(txbCadastroPreco.Text);
+                this.produto.id_categoria = int.Parse(cmbCategoriasCadastrar.Text.Split('-')[0]);
 
+                //Obter apenas o id categoria no combobox
+                this.produto.id_rescadastro = usuario.Id;
 
                 if (produto.Cadastrar_produtos() == true)
                 {
@@ -117,7 +133,7 @@ namespace Padarosa
                     GrbApagar.Enabled = false;
                     grbEdicao.Enabled = false;
                     txbCadastroNome.Clear();
-                    txbEditarCategoria.Clear();
+                   
                     txbCadastroPreco.Clear();
                     lblApagar.Text = "Selecione o usuario que deseja apagar.";
                   
@@ -132,6 +148,7 @@ namespace Padarosa
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
+
             //Validação de Erros:
             if (txbEditarNome.Text.Length < 3)
             {
@@ -142,16 +159,20 @@ namespace Padarosa
             {
                 MessageBox.Show("O preco do produto informado é invalido!", "Erro!",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+
             }
+
             
             
             else
             {
                 this.produto.nome = txbEditarNome.Text;
                 this.produto.preco = double.Parse(TxbEditarPreco.Text);
-                this.produto.id_categoria = int.Parse(txbEditarCategoria.Text);
+                this.produto.id_categoria = int.Parse(CmbCategoriasEditar.Text.Split('-')[0]);
+
                 this.produto.id_rescadastro = usuario.Id;
-                //Executar o .Modificar()
+                //Executar o Modificar()
                 if (this.produto.Modificar())
                 {
                     MessageBox.Show("Produto modificado com sucesso! ", "Sucesso!",
@@ -160,7 +181,7 @@ namespace Padarosa
                     //Limparos campos e desabilitar os grbs
                     grbEdicao.Enabled = false;
                     GrbApagar.Enabled = false;
-                    txbEditarCategoria.Clear();
+                    //txbEditarCategoria.Clear();
                     txbEditarNome.Clear();
                     txbCadastroPreco.Clear();
 

@@ -29,7 +29,7 @@ namespace Padarosa
 
         private void btnComandas_Click(object sender, EventArgs e)
         {
-            FrmComandas frmComandas = new FrmComandas(usuario);
+            lblProdutosLancar frmComandas = new lblProdutosLancar(usuario);
             frmComandas.ShowDialog();
         }
 
