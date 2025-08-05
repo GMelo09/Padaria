@@ -44,3 +44,4 @@ C:\Users\gustavo.mlima10\source\repos\Padarosa\Padarosa\obj\Debug\Padarosa1.pdb
 C:\Users\gustavo.mlima10\source\repos\Padarosa\Padarosa\obj\Debug\Padarosa.FrmGestaoUsuarios.resources
 C:\Users\gustavo.mlima10\source\repos\Padarosa\Padarosa\obj\Debug\Padarosa.FrmGestaoProdutos.resources
 C:\Users\gustavo.mlima10\source\repos\Padarosa\Padarosa\obj\Debug\Padarosa.lblProdutosLancar.resources
+C:\Users\gustavo.mlima10\source\repos\Padarosa\Padarosa\obj\Debug\Padarosa.FrmCaixa.resources

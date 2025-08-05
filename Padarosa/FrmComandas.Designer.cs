@@ -31,16 +31,17 @@
             this.dgvComandas = new System.Windows.Forms.DataGridView();
             this.btnContinuar = new System.Windows.Forms.Button();
             this.grbInformacaoes = new System.Windows.Forms.GroupBox();
-            this.lblComandaInfo = new System.Windows.Forms.Label();
-            this.lblProdutoInfo = new System.Windows.Forms.Label();
-            this.tcbComandasInfo = new System.Windows.Forms.TextBox();
             this.txbProdutosInfo = new System.Windows.Forms.TextBox();
+            this.txbComandasInfo = new System.Windows.Forms.TextBox();
+            this.lblProdutoInfo = new System.Windows.Forms.Label();
+            this.lblComandaInfo = new System.Windows.Forms.Label();
             this.grbLancar = new System.Windows.Forms.GroupBox();
-            this.txbQuantidadeLancamento = new System.Windows.Forms.TextBox();
-            this.txbComandasLancamento = new System.Windows.Forms.TextBox();
+            this.txbQuantidade = new System.Windows.Forms.TextBox();
+            this.txbNomeProduto = new System.Windows.Forms.TextBox();
             this.lblQuantidadeLancamento = new System.Windows.Forms.Label();
-            this.lblComandaLancamento = new System.Windows.Forms.Label();
+            this.lblNomeProduto = new System.Windows.Forms.Label();
             this.btnLancar = new System.Windows.Forms.Button();
+            this.btncancelar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvComandas)).BeginInit();
             this.grbInformacaoes.SuspendLayout();
             this.grbLancar.SuspendLayout();
@@ -77,7 +78,7 @@
             // grbInformacaoes
             // 
             this.grbInformacaoes.Controls.Add(this.txbProdutosInfo);
-            this.grbInformacaoes.Controls.Add(this.tcbComandasInfo);
+            this.grbInformacaoes.Controls.Add(this.txbComandasInfo);
             this.grbInformacaoes.Controls.Add(this.lblProdutoInfo);
             this.grbInformacaoes.Controls.Add(this.lblComandaInfo);
             this.grbInformacaoes.Controls.Add(this.btnContinuar);
@@ -88,15 +89,21 @@
             this.grbInformacaoes.TabStop = false;
             this.grbInformacaoes.Text = "Informações";
             // 
-            // lblComandaInfo
+            // txbProdutosInfo
             // 
-            this.lblComandaInfo.AutoSize = true;
-            this.lblComandaInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblComandaInfo.Location = new System.Drawing.Point(6, 48);
-            this.lblComandaInfo.Name = "lblComandaInfo";
-            this.lblComandaInfo.Size = new System.Drawing.Size(103, 20);
-            this.lblComandaInfo.TabIndex = 2;
-            this.lblComandaInfo.Text = "Comandas:";
+            this.txbProdutosInfo.Location = new System.Drawing.Point(113, 111);
+            this.txbProdutosInfo.Multiline = true;
+            this.txbProdutosInfo.Name = "txbProdutosInfo";
+            this.txbProdutosInfo.Size = new System.Drawing.Size(160, 20);
+            this.txbProdutosInfo.TabIndex = 5;
+            // 
+            // txbComandasInfo
+            // 
+            this.txbComandasInfo.Location = new System.Drawing.Point(113, 48);
+            this.txbComandasInfo.Multiline = true;
+            this.txbComandasInfo.Name = "txbComandasInfo";
+            this.txbComandasInfo.Size = new System.Drawing.Size(160, 20);
+            this.txbComandasInfo.TabIndex = 4;
             // 
             // lblProdutoInfo
             // 
@@ -108,79 +115,73 @@
             this.lblProdutoInfo.TabIndex = 3;
             this.lblProdutoInfo.Text = "Produto:";
             // 
-            // tcbComandasInfo
+            // lblComandaInfo
             // 
-            this.tcbComandasInfo.Location = new System.Drawing.Point(113, 48);
-            this.tcbComandasInfo.Multiline = true;
-            this.tcbComandasInfo.Name = "tcbComandasInfo";
-            this.tcbComandasInfo.Size = new System.Drawing.Size(160, 36);
-            this.tcbComandasInfo.TabIndex = 4;
-            // 
-            // txbProdutosInfo
-            // 
-            this.txbProdutosInfo.Location = new System.Drawing.Point(113, 111);
-            this.txbProdutosInfo.Multiline = true;
-            this.txbProdutosInfo.Name = "txbProdutosInfo";
-            this.txbProdutosInfo.Size = new System.Drawing.Size(160, 36);
-            this.txbProdutosInfo.TabIndex = 5;
+            this.lblComandaInfo.AutoSize = true;
+            this.lblComandaInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblComandaInfo.Location = new System.Drawing.Point(6, 48);
+            this.lblComandaInfo.Name = "lblComandaInfo";
+            this.lblComandaInfo.Size = new System.Drawing.Size(103, 20);
+            this.lblComandaInfo.TabIndex = 2;
+            this.lblComandaInfo.Text = "Comandas:";
             // 
             // grbLancar
             // 
-            this.grbLancar.Controls.Add(this.txbQuantidadeLancamento);
-            this.grbLancar.Controls.Add(this.txbComandasLancamento);
+            this.grbLancar.Controls.Add(this.txbQuantidade);
+            this.grbLancar.Controls.Add(this.txbNomeProduto);
             this.grbLancar.Controls.Add(this.lblQuantidadeLancamento);
-            this.grbLancar.Controls.Add(this.lblComandaLancamento);
+            this.grbLancar.Controls.Add(this.lblNomeProduto);
             this.grbLancar.Controls.Add(this.btnLancar);
             this.grbLancar.Enabled = false;
             this.grbLancar.Location = new System.Drawing.Point(12, 267);
             this.grbLancar.Name = "grbLancar";
-            this.grbLancar.Size = new System.Drawing.Size(321, 249);
+            this.grbLancar.Size = new System.Drawing.Size(321, 207);
             this.grbLancar.TabIndex = 6;
             this.grbLancar.TabStop = false;
             this.grbLancar.Text = "Lançar";
             // 
-            // txbQuantidadeLancamento
+            // txbQuantidade
             // 
-            this.txbQuantidadeLancamento.Location = new System.Drawing.Point(113, 111);
-            this.txbQuantidadeLancamento.Multiline = true;
-            this.txbQuantidadeLancamento.Name = "txbQuantidadeLancamento";
-            this.txbQuantidadeLancamento.Size = new System.Drawing.Size(179, 36);
-            this.txbQuantidadeLancamento.TabIndex = 5;
+            this.txbQuantidade.Location = new System.Drawing.Point(136, 86);
+            this.txbQuantidade.Multiline = true;
+            this.txbQuantidade.Name = "txbQuantidade";
+            this.txbQuantidade.Size = new System.Drawing.Size(179, 20);
+            this.txbQuantidade.TabIndex = 5;
             // 
-            // txbComandasLancamento
+            // txbNomeProduto
             // 
-            this.txbComandasLancamento.Location = new System.Drawing.Point(113, 48);
-            this.txbComandasLancamento.Multiline = true;
-            this.txbComandasLancamento.Name = "txbComandasLancamento";
-            this.txbComandasLancamento.Size = new System.Drawing.Size(179, 36);
-            this.txbComandasLancamento.TabIndex = 4;
+            this.txbNomeProduto.Location = new System.Drawing.Point(167, 40);
+            this.txbNomeProduto.Multiline = true;
+            this.txbNomeProduto.Name = "txbNomeProduto";
+            this.txbNomeProduto.Size = new System.Drawing.Size(148, 20);
+            this.txbNomeProduto.TabIndex = 4;
             // 
             // lblQuantidadeLancamento
             // 
             this.lblQuantidadeLancamento.AutoSize = true;
             this.lblQuantidadeLancamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQuantidadeLancamento.Location = new System.Drawing.Point(-3, 127);
+            this.lblQuantidadeLancamento.Location = new System.Drawing.Point(19, 86);
             this.lblQuantidadeLancamento.Name = "lblQuantidadeLancamento";
             this.lblQuantidadeLancamento.Size = new System.Drawing.Size(110, 20);
             this.lblQuantidadeLancamento.TabIndex = 3;
             this.lblQuantidadeLancamento.Text = "Quantidade:";
             // 
-            // lblComandaLancamento
+            // lblNomeProduto
             // 
-            this.lblComandaLancamento.AutoSize = true;
-            this.lblComandaLancamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblComandaLancamento.Location = new System.Drawing.Point(6, 48);
-            this.lblComandaLancamento.Name = "lblComandaLancamento";
-            this.lblComandaLancamento.Size = new System.Drawing.Size(103, 20);
-            this.lblComandaLancamento.TabIndex = 2;
-            this.lblComandaLancamento.Text = "Comandas:";
+            this.lblNomeProduto.AutoSize = true;
+            this.lblNomeProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNomeProduto.Location = new System.Drawing.Point(20, 43);
+            this.lblNomeProduto.Name = "lblNomeProduto";
+            this.lblNomeProduto.Size = new System.Drawing.Size(141, 17);
+            this.lblNomeProduto.TabIndex = 2;
+            this.lblNomeProduto.Text = "Nome Do Produto:";
             // 
             // btnLancar
             // 
             this.btnLancar.BackColor = System.Drawing.Color.Black;
             this.btnLancar.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLancar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnLancar.Location = new System.Drawing.Point(23, 202);
+            this.btnLancar.Location = new System.Drawing.Point(23, 138);
             this.btnLancar.Name = "btnLancar";
             this.btnLancar.Size = new System.Drawing.Size(269, 41);
             this.btnLancar.TabIndex = 1;
@@ -188,11 +189,27 @@
             this.btnLancar.UseVisualStyleBackColor = false;
             this.btnLancar.Click += new System.EventHandler(this.btnLancar_Click);
             // 
+            // btncancelar
+            // 
+            this.btncancelar.BackColor = System.Drawing.Color.Black;
+            this.btncancelar.FlatAppearance.BorderSize = 0;
+            this.btncancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btncancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btncancelar.ForeColor = System.Drawing.Color.Red;
+            this.btncancelar.Location = new System.Drawing.Point(12, 495);
+            this.btncancelar.Name = "btncancelar";
+            this.btncancelar.Size = new System.Drawing.Size(120, 33);
+            this.btncancelar.TabIndex = 7;
+            this.btncancelar.Text = "Cancelar";
+            this.btncancelar.UseVisualStyleBackColor = false;
+            this.btncancelar.Click += new System.EventHandler(this.btncancelar_Click);
+            // 
             // lblProdutosLancar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 540);
+            this.Controls.Add(this.btncancelar);
             this.Controls.Add(this.grbLancar);
             this.Controls.Add(this.grbInformacaoes);
             this.Controls.Add(this.dgvComandas);
@@ -215,12 +232,13 @@
         private System.Windows.Forms.Label lblProdutoInfo;
         private System.Windows.Forms.Label lblComandaInfo;
         private System.Windows.Forms.TextBox txbProdutosInfo;
-        private System.Windows.Forms.TextBox tcbComandasInfo;
+        private System.Windows.Forms.TextBox txbComandasInfo;
         private System.Windows.Forms.GroupBox grbLancar;
-        private System.Windows.Forms.TextBox txbQuantidadeLancamento;
-        private System.Windows.Forms.TextBox txbComandasLancamento;
+        private System.Windows.Forms.TextBox txbQuantidade;
+        private System.Windows.Forms.TextBox txbNomeProduto;
         private System.Windows.Forms.Label lblQuantidadeLancamento;
-        private System.Windows.Forms.Label lblComandaLancamento;
+        private System.Windows.Forms.Label lblNomeProduto;
         private System.Windows.Forms.Button btnLancar;
+        private System.Windows.Forms.Button btncancelar;
     }
 }

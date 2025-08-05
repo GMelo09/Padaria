@@ -15,13 +15,17 @@ namespace Padarosa
         //variaveis globais
         Model.Usuario usuario;
         Model.Produto produto = new Model.Produto();
-        Model.OrdemComanda ordemcomanda = new Model.OrdemComanda();
+        Model.OrdemComanda ordemComanda = new Model.OrdemComanda();
 
         public lblProdutosLancar(Model.Usuario usuario)
         {
             InitializeComponent();
             this.usuario = usuario;
             AtualizarDgvComandas();
+        }
+        public void AtualizarDgv()
+        {
+            dgvComandas.DataSource = ordemComanda.listar_Comanda();
         }
 
         public void AtualizarDgvComandas()
@@ -33,13 +37,13 @@ namespace Padarosa
         private void btnContinuar_Click(object sender, EventArgs e)
         {
             //Verificar se os campos forma preenchidos:
-            if (txbComandasLancamento.Text == "")
+            if (txbComandasInfo.Text == "")
             {
                 MessageBox.Show("Informe o número da comanda!",
                     "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
-            else if (txbQuantidadeLancamento.Text == "")
+            else if (txbProdutosInfo.Text == "")
             {
                 MessageBox.Show("Informe o número do produto!",
                         "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -56,37 +60,50 @@ namespace Padarosa
 
         }
 
+        public void ResetarCampos()
+        {
+            grbInformacaoes.Enabled = false ;
+            grbLancar.Enabled = false ;
+
+            //Limpar os campos
+            txbProdutosInfo.Clear();
+            txbComandasInfo.Clear();
+            txbNomeProduto.Clear();
+            txbQuantidade.Clear();
+        }
+
         private void dgvComandas_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int linhaSelecionada = dgvComandas.SelectedCells[0].RowIndex;
             //Atribuir p id no produto no txb:
             txbProdutosInfo.Text = dgvComandas.Rows[linhaSelecionada].Cells[0].Value.ToString();
             //Atribuir p nome no txb:
-            txbQuantidadeLancamento.Text = dgvComandas.Rows[linhaSelecionada].Cells[1].Value.ToString();
+            txbNomeProduto.Text = dgvComandas.Rows[linhaSelecionada].Cells[1].Value.ToString();
         }
 
         private void btnLancar_Click(object sender, EventArgs e)
         {
-            if(txbQuantidadeLancamento.Text == "")
+            if(txbQuantidade.Text == "")
             {
                 MessageBox.Show("Informe a quantidade!",
                         "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                DialogResult r = MessageBox.Show($"Tem certeza que deseja lançar{txbQuantidadeLancamento.Text} unidaes de" +
-                    $"{txbProdutosInfo.Text}  na comnada {txbComandasLancamento.Text}?");
+                DialogResult r = MessageBox.Show($"Tem certeza que deseja lançar {txbQuantidade.Text} unidades de" +
+                    $" {txbProdutosInfo.Text}  na comnada {txbNomeProduto.Text}?", "Atenção!",
+                    MessageBoxButtons.YesNo,MessageBoxIcon.Question);
 
                 // Se "Sim
                 if( r == DialogResult.Yes )
                 {
-                    ordemcomanda.Idresp = usuario.Id;
-                    ordemcomanda.IdProduto = int.Parse(txbProdutosInfo.Text);
-                    ordemcomanda.idFicha = int.Parse(txbComandasLancamento.Text);
-                    ordemcomanda.Quantidade=int.Parse(txbQuantidadeLancamento.Text);
-                    ordemcomanda.Situacao = 1;
+                    ordemComanda.Idresp = usuario.Id;
+                    ordemComanda.IdProduto = int.Parse(txbProdutosInfo.Text);
+                    ordemComanda.idFicha = int.Parse(txbComandasInfo.Text);
+                    ordemComanda.Quantidade = int.Parse(txbQuantidade.Text);
+                    ordemComanda.Situacao = 1;//Inserir
 
-                    if (ordemcomanda.Cadastrar_Comanda())
+                    if (ordemComanda.Cadastrar_Comanda())
                     {
                         MessageBox.Show("Lançamneto efetuado com sucesso!",
                         "SUCESSO!", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -100,9 +117,15 @@ namespace Padarosa
                 else
                 {
                     //Resetar os campos
+                    ResetarCampos();
 
                 }
             }
+        }
+
+        private void btncancelar_Click(object sender, EventArgs e)
+        {
+            ResetarCampos();
         }
     }
 }
