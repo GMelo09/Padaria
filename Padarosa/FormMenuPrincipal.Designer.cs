@@ -41,7 +41,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::Padarosa.Properties.Resources.baker;
+            this.pictureBox1.Image = global::Padarosa.Properties.Resources._4670821;
             this.pictureBox1.Location = new System.Drawing.Point(32, 61);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(5);
             this.pictureBox1.Name = "pictureBox1";
